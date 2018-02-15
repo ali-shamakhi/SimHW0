@@ -2,6 +2,7 @@ import java.util.Random;
 
 abstract class IntegralProblemSim {
 
+    // TODO: Inspect pros and cons of using double types (precession vs speed).
     float minX;  // a
     float maxX;  // b
     float minY;

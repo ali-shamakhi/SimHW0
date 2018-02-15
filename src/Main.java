@@ -16,10 +16,10 @@ public class Main {
                 problem = new Integral_xPow2_1To2_Sim();
                 break;
             case 2:
-                problem = null; // TODO: Implement
+                problem = new Integral_ePowXPow2_1To2_Sim();
                 break;
             case 3:
-                problem = null; // TODO: Implement
+                problem = new Calculate_PI_Sim();
                 break;
             default:
                 System.err.println("Invalid input");
@@ -27,11 +27,12 @@ public class Main {
         }
 
         System.out.print("= ??? (Iterations: " + problem.getCountAllPoints() + ")");
+        // TODO: Implement a dynamic approach to number of iterations, based on the number of passed iterations and the fluctuation of new results.
         while (problem.getCountAllPoints() < 1_000_000_000) {
             problem.generateNextPoint();
             if (problem.getCountAllPoints() % 1_000_000 == 0)
                 System.out.print("\r= " + problem.getResult() + " (Iterations: " + problem.getCountAllPoints() + ")");
         }
-        System.out.println("= " + problem.getResult() + " (Iterations: " + problem.getCountAllPoints() + ")");
+        System.out.println("\r= " + problem.getResult() + " (Iterations: " + problem.getCountAllPoints() + ")");
     }
 }
