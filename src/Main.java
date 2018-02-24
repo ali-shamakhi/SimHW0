@@ -16,7 +16,7 @@ public class Main {
                 problem = new Integral_xPow2_Sim(1.0f, 2.0f, 0.0f, 4.0f);
                 break;
             case 2:
-                problem = new Integral_ePowXPow2_Sim(1.0f, 2.0f, 0.0f, (float)(Math.pow(Math.E, 2.0 * 2.0)));
+                problem = new Integral_ePowXPow2_Sim(1.0f, 2.0f, 0.0f, Math.pow(Math.E, 2.0 * 2.0));
                 break;
             case 3:
                 problem = new Calculate_PI_Sim();

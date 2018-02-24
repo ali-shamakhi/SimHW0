@@ -2,19 +2,18 @@ import java.util.Random;
 
 abstract class IntegralProblemSim {
 
-    // TODO: Inspect pros and cons of using double types (precession vs speed).
-    float minX;  // a
-    float maxX;  // b
-    float minY;
-    float maxY;
-    float resultCoefficient;
-    private float testRectangleArea = 0.0f;
+    double minX;  // a
+    double maxX;  // b
+    double minY;
+    double maxY;
+    double resultCoefficient;
+    private double testRectangleArea = 0.0f;
     private boolean setTestRectangleArea = false;
     private long countAllPoints = 0L;        // N
     private long countContainedPoints = 0L;  // M
     private final Random rnd;
 
-    private float getTestRectangleArea() {
+    private double getTestRectangleArea() {
         if (!setTestRectangleArea) {
             testRectangleArea = (maxY - minY) * (maxX - minX);
             setTestRectangleArea = true;
@@ -22,24 +21,24 @@ abstract class IntegralProblemSim {
         return testRectangleArea;
     }
 
-    private float getRandIn(float min, float max) {
-        return min + rnd.nextFloat() * (max - min);
+    private double getRandIn(double min, double max) {
+        return min + rnd.nextDouble() * (max - min);
     }
 
-    abstract boolean isContainedPoint(float x, float y);
+    abstract boolean isContainedPoint(double x, double y);
 
     IntegralProblemSim() {
         rnd = new Random(System.currentTimeMillis());   // init rnd
     }
 
     public void generateNextPoint() {
-        float x = getRandIn(minX, maxX);
-        float y = getRandIn(minY, maxY);
+        double x = getRandIn(minX, maxX);
+        double y = getRandIn(minY, maxY);
         countAllPoints++;
         if (isContainedPoint(x, y)) countContainedPoints++;
     }
 
-    public float getResult() {
+    public double getResult() {
         return resultCoefficient * getTestRectangleArea() * countContainedPoints / countAllPoints;
     }
 

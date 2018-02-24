@@ -1,6 +1,6 @@
 abstract class IntegralGivenRectSim extends IntegralProblemSim {
 
-    IntegralGivenRectSim(float minX, float maxX, float minY, float maxY) {
+    IntegralGivenRectSim(double minX, double maxX, double minY, double maxY) {
         super();    // init rnd
         this.minX = minX;
         this.maxX = maxX;

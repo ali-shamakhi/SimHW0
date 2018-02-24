@@ -10,7 +10,7 @@ class Calculate_PI_Sim extends IntegralProblemSim {
     }
 
     @Override
-    boolean isContainedPoint(float x, float y) {
+    boolean isContainedPoint(double x, double y) {
         return (y * y <= 1.0f - x * x);
     }
 }
