@@ -11,7 +11,9 @@ abstract class IntegralProblemSim {
     private boolean setTestRectangleArea = false;
     private long countAllPoints = 0L;        // N
     private long countContainedPoints = 0L;  // M
-    private final Random rnd;
+    // <Switch rnd>
+    private final MyRandom rnd;
+//    private final Random rnd;
 
     private double getTestRectangleArea() {
         if (!setTestRectangleArea) {
@@ -28,7 +30,9 @@ abstract class IntegralProblemSim {
     abstract boolean isContainedPoint(double x, double y);
 
     IntegralProblemSim() {
-        rnd = new Random(System.currentTimeMillis());   // init rnd
+        // <Switch rnd>
+        rnd = new MyRandom(65539);    // My Random
+//        rnd = new Random(65539);    // System Random
     }
 
     public void generateNextPoint() {
